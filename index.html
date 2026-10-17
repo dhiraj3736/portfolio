@@ -425,6 +425,50 @@ html[data-theme="light"] .flow-step{background:#f7f9ff!important;border-color:#d
 @media(prefers-reduced-motion:reduce){.engineering-card{transition:none!important}.engineering-card:hover{transform:none}}
 </style>
 
+
+<style id="mobile-overflow-and-zoom-fix">
+/* V12: keep the layout inside the mobile viewport without disabling pinch zoom. */
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 84px;
+}
+body {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  overflow-x: clip;
+}
+img, video, canvas, svg, iframe { max-width: 100%; }
+.wrap, main, header, footer, section, nav, .hero, .hero-copy, .visual,
+.showcase, .projects, .project, .about-grid, .contact-wrap, .engineering-grid,
+.engineering-card, .engineering-flow, .timeline, .experience, .education,
+.skills-grid, .toolbox, .fact-grid, .section-head, .footer-inner {
+  min-width: 0;
+  max-width: 100%;
+}
+pre, code { max-width: 100%; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .wrap { width: calc(100% - 32px); margin-inline: auto; }
+  .hero, .about-grid, .contact-wrap, .engineering-grid, .projects,
+  .skills-grid, .toolbox { min-width: 0; }
+  .hero > *, .about-grid > *, .contact-wrap > *, .engineering-grid > *,
+  .projects > *, .skills-grid > *, .toolbox > * { min-width: 0; }
+  h1, h2, h3, p, a, li, button, .project, .contact-link, .experience {
+    overflow-wrap: anywhere;
+  }
+  .navlinks { max-width: calc(100vw - 32px); }
+  .back-top { right: 12px; }
+  /* Prevent accidental horizontal scrolling while preserving browser pinch-zoom. */
+  body { overscroll-behavior-x: none; }
+}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
